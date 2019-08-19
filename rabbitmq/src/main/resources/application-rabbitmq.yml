@@ -1,0 +1,13 @@
+spring:
+  rabbitmq:
+    host: 118.25.37.36
+    port: 5672
+    username: test
+    password: 123456
+    virtual-host: vhost_test
+
+    listener:
+      simple:
+        concurrency: 10
+        max-concurrency: 20
+        prefetch: 5

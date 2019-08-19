@@ -1,0 +1,19 @@
+#端口号配置
+server:
+  port: 9080
+  tomcat:
+    accesslog:
+      enabled: true
+      directory: log
+    uri-encoding: UTF-8
+
+spring:
+  profiles:
+#    各个模块的spring.profiles.active已经无效
+#    需要的配置文件一定要添加上，同样名称的yml和properties同时生效
+    active: dev,common,persistence,druid,mybatis-plus,lettuce,rabbitmq,mail
+
+# 打印sql
+#logging:
+#  level:
+#    com.lemon.portti.mapper: debug

@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.lemon</groupId>
+  <artifactId>portti</artifactId>
+  <packaging>pom</packaging>
+  <version>0.0.1</version>
+  <name>${project.artifactId}</name>
+  <description>for all tech</description>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <java.version>1.8</java.version>
+
+    <version.framework>2.1.7.RELEASE</version.framework>
+
+    <mybatisplus.spring.boot.version>3.1.1</mybatisplus.spring.boot.version>
+    <mybatisplus.version>3.1.1</mybatisplus.version>
+    <dynamic-datasource.version>2.5.4</dynamic-datasource.version>
+    <mybatis.test.version>2.1.0</mybatis.test.version>
+    <druid.version>1.1.18</druid.version>
+    <lombok.version>1.18.8</lombok.version>
+    <fastjson.version>1.2.46</fastjson.version>
+    <junit.version>4.12</junit.version>
+    <log4j-slf4j-impl.version>2.10.0</log4j-slf4j-impl.version>
+    <log4j.version>2.10.0</log4j.version>
+    <slf4j.version>1.7.25</slf4j.version>
+    <h2.version>1.4.199</h2.version>
+    <mysql-connector-java.version>8.0.16</mysql-connector-java.version>
+    <jackson-databind.version>2.9.9</jackson-databind.version>
+    <jackson-annotations.version>2.9.0</jackson-annotations.version>
+    <redisson.version>3.8.2</redisson.version>
+    <common-pool.version>2.7.0</common-pool.version>
+    <lang3.version>3.9</lang3.version>
+    <guava.version>23.0</guava.version>
+  </properties>
+
+  <modules>
+    <module>springweb</module>
+    <module>common</module>
+    <module>rabbitmq</module>
+    <module>persistence</module>
+    <module>lettuce</module>
+  </modules>
+
+  <dependencyManagement>
+    <dependencies>
+<!--
+
+      <dependency>
+        <groupId>com.lemon</groupId>
+        <artifactId>common</artifactId>
+        <version>0.0.1</version>
+      </dependency>
+      <dependency>
+        <groupId>com.lemon</groupId>
+        <artifactId>rabbitmq</artifactId>
+        <version>0.0.1</version>
+      </dependency>
+      <dependency>
+        <groupId>com.lemon</groupId>
+        <artifactId>persistence</artifactId>
+        <version>0.0.1</version>
+      </dependency>
+      <dependency>
+        <groupId>com.lemon</groupId>
+        <artifactId>lettuce</artifactId>
+        <version>0.0.1</version>
+      </dependency>
+-->
+
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-json</artifactId>
+        <version>${version.framework}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter</artifactId>
+        <version>${version.framework}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+        <version>${version.framework}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-amqp</artifactId>
+        <version>${version.framework}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-redis</artifactId>
+        <version>${version.framework}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-devtools</artifactId>
+        <version>${version.framework}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-configuration-processor</artifactId>
+        <version>${version.framework}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-test</artifactId>
+        <version>${version.framework}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-boot-starter</artifactId>
+        <version>${mybatisplus.spring.boot.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-generator</artifactId>
+        <version>${mybatisplus.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+        <version>${dynamic-datasource.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>druid-spring-boot-starter</artifactId>
+        <version>${druid.version}</version>
+      </dependency>
+
+      <!-- lettuce pool 缓存连接池 -->
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-pool2</artifactId>
+        <version>${common-pool.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>${lombok.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>fastjson</artifactId>
+        <version>${fastjson.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-annotations</artifactId>
+        <version>${jackson-annotations.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>${jackson-databind.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${junit.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mybatis.spring.boot</groupId>
+        <artifactId>mybatis-spring-boot-starter-test</artifactId>
+        <version>${mybatis.test.version}</version>
+      </dependency>
+      <!--slf4j对应log4j2的中间件,即桥接，告诉slf4j使用log4j2-->
+      <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-slf4j-impl</artifactId>
+        <version>${log4j-slf4j-impl.version}</version>
+      </dependency>
+      <!-- slf4j核心包-->
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>${slf4j.version}</version>
+      </dependency>
+      <!--log4j2核心包-->
+      <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-core</artifactId>
+        <version>${log4j.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-api</artifactId>
+        <version>${log4j.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.h2database</groupId>
+        <artifactId>h2</artifactId>
+        <version>${h2.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>${mysql-connector-java.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>${lang3.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>${guava.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.hibernate.validator</groupId>
+        <artifactId>hibernate-validator</artifactId>
+        <version>6.0.17.Final</version>
+      </dependency>
+
+
+    </dependencies>
+
+  </dependencyManagement>
+
+  <!-- 环境信息 -->
+  <profiles>
+    <!-- 标机开发环境 -->
+<!--    profiles属性，这个属性是让我们区分多环境是打包哪些配置文件，-->
+<!--    其id参数就是我们的要打包环境的一个标识，-->
+<!--    比如我们打包测试环境我们只需要执行clean install -Ptest即可，-->
+<!--    -P后面的值即为这个id值，其中properties属性里面的列表是标识该环境生效的配置文件，-->
+<!--    属性里面的是SpringBoot配置文件后面的值，-->
+<!--    比如application-serviceproduct.properties其值就为serviceproduct。-->
+    <profile>
+      <id>dev</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+        <jdk>1.8</jdk>
+      </activation>
+      <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+        <!--activeProfile 没有特殊含义，只是一个名称，是yml文件除去application-的后缀名-->
+        <activeProfile>dev</activeProfile>
+        <commonactive>common</commonactive>
+        <persistenceactive>persistence</persistenceactive>
+        <druidactive>druid</druidactive>
+        <mybatis-plusactive>mybatis-plus</mybatis-plusactive>
+        <lettuceactive>lettuce</lettuceactive>
+        <rabbitmqactive>rabbitmq</rabbitmqactive>
+      </properties>
+      <repositories>
+        <repository>
+          <id>jdk18</id>
+          <name>Repository for JDK 1.8 builds</name>
+          <url>http://www.myhost.com/maven/jdk18</url>
+        </repository>
+      </repositories>
+    </profile>
+  </profiles>
+
+<!--  <build>-->
+<!--    <pluginManagement>-->
+<!--      <plugins>-->
+<!--        <plugin>-->
+<!--          <groupId>org.apache.maven.plugins</groupId>-->
+<!--          <artifactId>maven-compiler-plugin</artifactId>-->
+<!--          <version>3.6.1</version>-->
+<!--          <configuration>-->
+<!--            <source>1.8</source>-->
+<!--            <target>1.8</target>-->
+<!--            <testSource>1.8</testSource>-->
+<!--            <testTarget>1.8</testTarget>-->
+<!--            <encoding>UTF-8</encoding>-->
+<!--          </configuration>-->
+<!--        </plugin>-->
+<!--      </plugins>-->
+<!--    </pluginManagement>-->
+<!--  </build>-->
+
+</project>
