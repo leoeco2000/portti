@@ -24,7 +24,7 @@
     <mybatis.test.version>2.1.0</mybatis.test.version>
     <druid.version>1.1.18</druid.version>
     <lombok.version>1.18.8</lombok.version>
-    <fastjson.version>1.2.46</fastjson.version>
+    <fastjson.version>1.2.83</fastjson.version>
     <junit.version>4.12</junit.version>
     <log4j-slf4j-impl.version>2.10.0</log4j-slf4j-impl.version>
     <log4j.version>2.10.0</log4j.version>
